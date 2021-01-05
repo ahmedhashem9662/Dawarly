@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="transparent_colorPrimary">#9994CD0D</color>
+    <color name="transparent_colorPrimaryDark">#99730404</color>
+
+    <color name="red_dark">#870404</color>
+    <color name="red_light">#E1A50A0A</color>
+    <color name="transparent_red_light">#E1D54646</color>
+    <color name="red">#F80303</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="white_dark">#F8FFFFFF</color>
+    <color name="whiteDark">#F6F5F5</color>
+    <color name="black">#000000</color>
+    <color name="black_light">#2B2A2A</color>
+    <color name="transparent_black">#99000000</color>
+
+    <color name="transparent_gray">#1B433F3F</color>
+    <color name="gray">#807A7A</color>
+    <color name="lightgray">#05433F3F</color>
+    <color name="trans_gray">#3B433F3F</color>
+
+    <color name="yellow">#FFD147</color>
+    <color name="transparent_yellow">#99FFC107</color>
+
+    <color name="orange">#FA430A</color>
+    <color name="transparent_orange">#99FF5722</color>
+    <color name="transparent">#00000000</color>
+    <color name="green">#3CE843</color>
+    <color name="transparent_green">#994CAF50</color>
+    <color name="dark_green">#3C7C3F</color>
+    <color name="green_black">#3E5140</color>
+    <color name="light_green">#086C0E</color>
+    <color name="bg_green">#038708</color>
+
+    <color name="purple">#BB1CD6</color>
+    <color name="transparent_purple">#999C27B0</color>
+
+    <color name="turquoise">#13CDE4</color>
+    <color name="transparent_turquoise">#9900BCD4</color>
+
+    <color name="light_turquoise">#527C8F</color>
+
+    <color name="light_blue">#07ACF6</color>
+    <color name="trans_blue">#90CFEC</color>
+
+</resources>

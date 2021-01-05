@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Dawarly</string>
+    <string name="google_maps_key" translatable="false">AIzaSyDveBIyZRQzBqgJlJRib0yD9F_-gyazW3c</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="km">KM</string>
+    <string name="radius">Radius</string>
+    <string name="search"><u>Search</u></string>
+    <string name="choose_nearby_place_category_type_distance_radius_and_start_search">Choose Nearby Place Category, Type Distance Radius And Start Search</string>
+
+    <string name="title_location_permission" />
+    <string name="text_location_permission" />
+    <string name="Ok" />
+    <string name="map">Map</string>
+    <string name="satellite">Satellite</string>
+    <string name="hybrid">Hybrid</string>
+    <string name="about">About</string>
+    <string name="about_dawarly">About Dawarly</string>
+    <string name="welcome_to_dawarly">Welcome to dawarly</string>
+    <string name="dawarly_helps_you_to_get_your_location_precisely_so_please_set_your_gps_n_your_location_will_be_determined_by_a_red_marker_on_the_map">Dawarly helps you to get your location precisely , So please set your GPS \nYour location will be determined by a red marker on the map.</string>
+    <string name="how_to_show_the_places_nearby_me">How to show the places nearby Me?</string>
+
+    <string name="information_about_place_and_drawing_path_nbetween_places_and_your_location">Information about place and drawing path\nbetween places and your location.</string>
+    <string name="dawarly_helps_you_to_get_the_places_nearby_your_location_as_you_choose_from_categories_njust_open_the_map_screen_press_on_categories_menu_to_choose_the_place_category_nthen_choose_the_place_category_that_you_need_doctors_airports_hospitals_etc_nthen_enter_the_radius_of_search_region_in_kms_n_then_press_on_search_button_and_please_wait_for_nseveral_seconds_until_finish_the_search">Dawarly helps you to get the places nearby your location as you choose from categories.\nJust open the map screen, press on Categories menu to choose the place category.\nThen choose the place category that You need (Doctors , Airports , Hospitals ... etc),\nThen enter the radius of search region in KMs.\n Then press on Search button and please wait for \nSeveral seconds until finish the search.</string>
+    <string name="when_you_press_on_any_red_mark_some_information_will_be_shown_press_on_it_to_show_an_alert_dialog_nthe_alert_dialog_lets_you_choose_from_two_buttons_n1_draw_path_between_you_and_this_place_n2_show_all_information_about_this_place">When you press on any red mark, some information will be shown, press on it to show an alert dialog.\nThe alert dialog lets you choose from two buttons.\n1- Draw path between you and this place.\n2- Show all information about this place.</string>
+    <string name="copyrighted">Copyrighted.</string>
+    <string name="created_by_ahmed_hashem_and_khaled_saleh_senior_android_developers_n_e_mail_medohashem490_gmail_com">Created by : Ahmed Hashem and khaled Saleh Senior android developers.\n E-Mail : Medohashem490@Gmail.Com.</string>
+    <string name="place_details">Place Details</string>
+    <string name="Place_Details" />
+    <string name="dawarly">Dawarly</string>
+    <string name="vicinity">Vicinity:</string>
+    <string name="n">دكتور فتحى نوفل \n طبيب اطفال</string>
+    <string name="location">Location:</string>
+    <string name="address">Address:</string>
+    <string name="phone">Phone:</string>
+    <string name="website">Website:</string>
+    <string name="rating">Rating:</string>
+    <string name="international_phone">International Phone:</string>
+    <string name="url">Url:</string>
+    <string name="drawpath">Draw Path</string>
+    <string name="placedetails">Place Details</string>
+    <string name="please_wait">Please Wait</string>
+
+</resources>

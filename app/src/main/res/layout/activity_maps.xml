@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.dawarly.activities.map.MapsViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/svLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/bg_round"
+            android:iconifiedByDefault="false"
+            android:onClick="@{()->viewModel.observer.onSearchViewClick()}"
+            app:elevation="10dp"
+            app:queryHint="Search..." />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/svLocation"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/choose_nearby_place_category_type_distance_radius_and_start_search"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/planetsSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:scrollbars="vertical"
+            android:spinnerMode="dropdown" />
+
+        <EditText
+            android:id="@+id/edtRadius"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/planetsSpinner"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:hint="@string/radius"
+            android:inputType="number"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@{viewModel.radius}"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtKm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/planetsSpinner"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@id/edtRadius"
+            android:text="@string/km"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txtSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/planetsSpinner"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:drawablePadding="3dp"
+            android:onClick="search"
+            android:text="@string/search"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/search" />
+
+        <Button
+            android:id="@+id/buMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edtRadius"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/white"
+            android:onClick="@{()->viewModel.observer.onMapClick()}"
+            android:text="@string/map" />
+
+        <Button
+            android:id="@+id/buSatellite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edtRadius"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/buMap"
+            android:background="@android:color/white"
+            android:onClick="@{()->viewModel.observer.onSatelliteClick()}"
+            android:text="@string/satellite" />
+
+        <Button
+            android:id="@+id/buHybrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edtRadius"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/buSatellite"
+            android:background="@android:color/white"
+            android:onClick="@{()->viewModel.observer.onHybridClick()}"
+            android:text="@string/hybrid" />
+
+        <fragment
+            android:id="@+id/Map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/edtRadius"
+            android:layout_marginTop="5dp">
+
+        </fragment>
+
+    </RelativeLayout>
+</layout>
