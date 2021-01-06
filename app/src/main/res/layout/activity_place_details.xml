@@ -1,225 +1,309 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.dawarly.activities.placeDetails.PlaceDetailsViewModel" />
     </data>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/reltive"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="20dp">
+            android:padding="20dp">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/ic_image"
-                app:imageUrlRect="@{viewModel.imageView}" />
+            <RelativeLayout
+                android:id="@+id/imageAndName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:imageUrlRect="@{viewModel.placePhoto}" />
+
+                <TextView
+                    android:id="@+id/namePlace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_toEndOf="@id/imageView"
+                    android:gravity="center"
+                    android:text="@{viewModel.name}"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="22sp" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_below="@id/imageAndName"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/black" />
 
             <TextView
-                android:id="@+id/namePlace"
+                android:id="@+id/txtVicinity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="@{viewModel.name}"
-                android:textSize="30sp" />
+                android:layout_below="@id/view"
+                android:layout_marginTop="15dp"
+                android:padding="10dp"
+                android:text="@string/vicinity"
+                android:textColor="@color/light_turquoise"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txtInformationVicinity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_toEndOf="@id/txtVicinity"
+                android:padding="10dp"
+                android:text="@{viewModel.vicinity}"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/txtInformationVicinity"
+                android:layout_marginTop="5dp"
+                android:background="@color/black" />
+
+
+            <TextView
+                android:id="@+id/txtLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view1"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:text="@string/location"
+                android:textColor="@color/light_turquoise"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txtInformationLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view1"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/txtLocation"
+                android:padding="10dp"
+                android:text="@{viewModel.location}"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/txtInformationLocation"
+                android:layout_marginTop="5dp"
+                android:background="@color/black" />
+
+            <TextView
+                android:id="@+id/txtAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view2"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:text="@string/address"
+                android:textColor="@color/light_turquoise"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txtInformationAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view2"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/txtAddress"
+                android:padding="10dp"
+                android:text="@{viewModel.address}"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/txtInformationAddress"
+                android:layout_marginTop="5dp"
+                android:background="@color/black" />
+
+            <TextView
+                android:id="@+id/txtPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view3"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:text="@string/phone"
+                android:textColor="@color/light_turquoise"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txtInformationPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view3"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/txtPhone"
+                android:padding="10dp"
+                android:text="@{viewModel.phone}"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/txtInformationPhone"
+                android:layout_marginTop="5dp"
+                android:background="@color/black" />
+
+            <TextView
+                android:id="@+id/txtWebsite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view4"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:text="@string/website"
+                android:textColor="@color/light_turquoise"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txtInformationWebsite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view4"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/txtWebsite"
+                android:padding="10dp"
+                android:text="@{viewModel.website}"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <View
+                android:id="@+id/view5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/txtInformationWebsite"
+                android:layout_marginTop="5dp"
+                android:background="@color/black" />
+
+            <TextView
+                android:id="@+id/txtRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view5"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:text="@string/rating"
+                android:textColor="@color/light_turquoise"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txtInformationRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view5"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/txtRating"
+                android:padding="10dp"
+                android:text="@{viewModel.rating}"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <View
+                android:id="@+id/view6"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/txtInformationRating"
+                android:layout_marginTop="5dp"
+                android:background="@color/black" />
+
+            <TextView
+                android:id="@+id/txtInternationalPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view6"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:text="@string/international_phone"
+                android:textColor="@color/light_turquoise"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txtInformationInterPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view6"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/txtInternationalPhone"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@{viewModel.internationalPhone}"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <View
+                android:id="@+id/view7"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/txtInformationInterPhone"
+                android:layout_marginTop="5dp"
+                android:background="@color/black" />
+
+            <TextView
+                android:id="@+id/txtUrl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view7"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:text="@string/url"
+                android:textColor="@color/light_turquoise"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txtInformationUrl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view7"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/txtUrl"
+                android:padding="10dp"
+                android:text="@{viewModel.url}"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
         </RelativeLayout>
-
-        <View
-            android:id="@+id/viewN"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_below="@id/reltive"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="5dp"
-            android:background="@android:color/black" />
-
-        <TextView
-            android:id="@+id/txtVicinity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/viewN"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="15dp"
-            android:text="@string/vicinity"
-            android:textSize="22sp" />
-
-
-        <TextView
-            android:id="@+id/txtVicinityInformation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/viewN"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="15dp"
-            android:layout_toEndOf="@id/txtVicinity"
-            android:text="@{viewModel.vicinity}"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/txtLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtVicinity"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/location"
-            android:textSize="22sp" />
-
-
-        <TextView
-            android:id="@+id/txtLocationInformation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtVicinity"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_toEndOf="@id/txtLocation"
-            android:text="@{viewModel.location}"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/txtAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtLocation"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/address"
-            android:textSize="22sp" />
-
-
-        <TextView
-            android:id="@+id/txtAddressInformation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtLocation"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_toEndOf="@id/txtAddress"
-            android:text="@{viewModel.address}"
-            android:textSize="15sp" />
-
-
-        <TextView
-            android:id="@+id/txtPhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtAddress"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/phone"
-            android:textSize="22sp" />
-
-        <TextView
-            android:id="@+id/txtPhoneInformation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtAddress"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_toEndOf="@id/txtPhone"
-            android:text="@{viewModel.phone}"
-            android:textSize="15sp" />
-
-
-        <TextView
-            android:id="@+id/txtWebsite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtPhone"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/website"
-            android:textSize="22sp" />
-
-        <TextView
-            android:id="@+id/txtWebsiteInformation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtPhone"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_toEndOf="@id/txtWebsite"
-            android:text="@{viewModel.website}"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/txtRating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtWebsite"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/rating"
-            android:textSize="22sp" />
-
-        <TextView
-            android:id="@+id/txtRatingInformation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtWebsite"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_toEndOf="@id/txtRating"
-            android:text="@{viewModel.rating}"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/txtInternational"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtRating"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/international_phone"
-            android:textSize="22sp" />
-
-        <TextView
-            android:id="@+id/txtInternationalInformation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtRating"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_toEndOf="@id/txtInternational"
-            android:text="@{viewModel.internationalPhone}"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/txtUrl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtInternational"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/url"
-            android:textSize="22sp" />
-
-        <TextView
-            android:id="@+id/txtUrlInformation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtInternational"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_toEndOf="@id/txtUrl"
-            android:text="@{viewModel.url}"
-            android:textSize="15sp" />
-
-    </RelativeLayout>
+    </ScrollView>
 </layout>

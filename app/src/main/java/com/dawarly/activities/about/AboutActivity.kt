@@ -6,7 +6,7 @@ import com.example.dawarly.R
 import com.example.dawarly.databinding.ActivityAboutMapBinding
 
 abstract class AboutActivity : BaseActivity(
-    true, true,true, true, "About Dawarly"
+    true, true,true, true, "About Dawarly" , false
 ), AboutViewModel.Observer {
 
     lateinit var binding: ActivityAboutMapBinding

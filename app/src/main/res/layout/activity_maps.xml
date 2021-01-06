@@ -15,17 +15,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.SearchView
+        <EditText
             android:id="@+id/svLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/bg_round"
-            android:iconifiedByDefault="false"
-            android:onClick="@{()->viewModel.observer.onSearchViewClick()}"
-            app:elevation="10dp"
-            app:queryHint="Search..." />
+            android:hint="@string/write_what_you_want_to_search"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:padding="10dp"
+            android:text="@={viewModel.keyWord}"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/textView"
@@ -52,16 +54,15 @@
 
         <EditText
             android:id="@+id/edtRadius"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/planetsSpinner"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:hint="@string/radius"
             android:inputType="number"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
-            android:text="@{viewModel.radius}"
+            android:padding="10dp"
+            android:text="@={viewModel.radius}"
             android:textSize="18sp" />
 
         <TextView
@@ -84,7 +85,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:drawablePadding="3dp"
-            android:onClick="search"
+            android:onClick="@{()->viewModel.onSearchClick()}"
             android:text="@string/search"
             android:textColor="@android:color/holo_blue_bright"
             android:textSize="18sp"

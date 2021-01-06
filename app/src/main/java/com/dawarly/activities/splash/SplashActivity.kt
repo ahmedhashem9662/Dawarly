@@ -8,7 +8,7 @@ import com.example.dawarly.R
 import com.example.dawarly.databinding.ActivitySplashBinding
 
 class SplashActivity : BaseActivity(
-    false, false, false, false, ""
+    false, false, false, false, "" , false
 ), SplashViewModel.Observer {
 
     lateinit var binding: ActivitySplashBinding

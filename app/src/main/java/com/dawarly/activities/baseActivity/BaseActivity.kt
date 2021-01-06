@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.PopupMenu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -15,8 +16,8 @@ import com.dawarly.MyApplication
 import com.dawarly.activities.about.AboutActivity
 import com.dawarly.util.LocaleHelper
 import com.dawarly.util.Preferences
-import com.example.dawarly.R
 import com.example.dawarly.databinding.ActivityBaseBinding
+
 
 abstract class BaseActivity : AppCompatActivity, BaseViewModel.Observer {
 
@@ -25,20 +26,22 @@ abstract class BaseActivity : AppCompatActivity, BaseViewModel.Observer {
     var isShowActivityName = false
     var isShowAppImage = false
     var activityName = ""
+    var isShowMainMenu = false
 
     constructor(
         isShowAppbar: Boolean,
         isShowBackICon: Boolean,
         isShowAppImage: Boolean,
         isShowActivityName: Boolean,
-        activityName: String )
-
-    {
+        activityName: String,
+        isShowMainMenu: Boolean
+    ) {
         this.isShowAppbar = isShowAppbar
         this.isShowBackICon = isShowBackICon
         this.isShowAppImage = isShowAppImage
         this.isShowActivityName = isShowActivityName
         this.activityName = activityName
+        this.isShowMainMenu = isShowMainMenu
     }
 
     lateinit var baseBinding: ActivityBaseBinding
@@ -58,34 +61,20 @@ abstract class BaseActivity : AppCompatActivity, BaseViewModel.Observer {
         super.onCreate(savedInstanceState)
         updateLocale()
         application = getApplication() as MyApplication
-        baseBinding = DataBindingUtil.setContentView(this, R.layout.activity_base)
+        baseBinding =
+            DataBindingUtil.setContentView(this, com.example.dawarly.R.layout.activity_base)
         baseBinding.viewModel = ViewModelProvider(
             this, BaseViewModelFactory(application)
         ).get(BaseViewModel::class.java)
         baseBinding.viewModel!!.baseObserver = this
         baseBinding.lifecycleOwner = this
 
+
         setAppBar()
         onBack()
         doCreate()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-        when (item.itemId) {
-            R.id.menu -> {
-                val intent = Intent(this, AboutActivity::class.java)
-                this.startActivity(intent)
-            }
-            else -> return super.onOptionsItemSelected(item)
-        }
-        return true
-    }
 
     override fun applyOverrideConfiguration(overrideConfiguration: Configuration?) {
         super.applyOverrideConfiguration(
@@ -102,7 +91,8 @@ abstract class BaseActivity : AppCompatActivity, BaseViewModel.Observer {
 
     open fun putContentView(layoutID: Int): ViewDataBinding? {
         return DataBindingUtil.inflate(
-            layoutInflater, layoutID, baseBinding.layoutOtherContent, true)
+            layoutInflater, layoutID, baseBinding.layoutOtherContent, true
+        )
     }
 
     abstract fun doCreate()
@@ -121,6 +111,7 @@ abstract class BaseActivity : AppCompatActivity, BaseViewModel.Observer {
         baseBinding.viewModel!!.isShowAppImage.value = isShowAppImage
         baseBinding.viewModel!!.isShowActivityName.value = isShowActivityName
         baseBinding.viewModel!!.activityName.value = activityName
+        baseBinding.viewModel!!.isShowMainMenu.value = isShowMainMenu
     }
 
     override fun onBack() {
@@ -128,6 +119,23 @@ abstract class BaseActivity : AppCompatActivity, BaseViewModel.Observer {
             onBackPressed()
         })
     }
+
+    override fun onMenuClicked() {
+        var pm = PopupMenu(this, baseBinding.mainMenu)
+        menuInflater.inflate(com.example.dawarly.R.menu.main_menu, pm.menu)
+        pm.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                com.example.dawarly.R.id.menu -> {
+                    val intent = Intent(this, AboutActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+            true
+        }
+        pm.show()
+
+    }
+
 }
 
 

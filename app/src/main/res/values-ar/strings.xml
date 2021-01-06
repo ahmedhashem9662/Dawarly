@@ -39,5 +39,6 @@
     <string name="drawpath">Draw Path</string>
     <string name="placedetails">Place Details</string>
     <string name="please_wait">Please Wait</string>
+    <string name="write_what_you_want_to_search">Write what you want to search</string>
 
 </resources>

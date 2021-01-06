@@ -2,13 +2,14 @@ package com.dawarly.activities.placeDetails
 
 import androidx.lifecycle.ViewModelProvider
 import com.dawarly.activities.baseActivity.BaseActivity
+import com.dawarly.model.ResultModel
 import com.dawarly.util.ProgressDialogLoading
 import com.example.dawarly.R
 import com.example.dawarly.databinding.ActivityPlaceDetailsBinding
 import java.util.*
 
 class PlaceDetailsActivity : BaseActivity(
-    true, true, true, true, "Place Details"
+    true, true, true, true, "Place Details", false
 ), PlaceDetailsViewModel.Observer {
 
     lateinit var binding: ActivityPlaceDetailsBinding
@@ -20,8 +21,10 @@ class PlaceDetailsActivity : BaseActivity(
         ).get(PlaceDetailsViewModel::class.java)
         binding.viewModel!!.observer = this
         binding.lifecycleOwner = this
-    }
 
+        binding.viewModel!!.selectedPlace = intent.extras!!["SelectedPlace"] as ResultModel
+        binding.viewModel!!.getPlaceDetailsFromServer(ResultModel())
+    }
 
     override fun showProgressDialog(isShow: Boolean) {
         if (isShow) {
@@ -31,5 +34,6 @@ class PlaceDetailsActivity : BaseActivity(
         }
     }
 }
+
 
 

@@ -1,4 +1,4 @@
-package com.dawarly.networkConnetcion
+package com.dawarly.connection
 
 import com.dawarly.model.PlacesResponseModel
 import com.dawarly.model.ResponseDetails

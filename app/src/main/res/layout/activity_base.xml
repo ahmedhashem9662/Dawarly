@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.dawarly.activities.baseActivity.BaseViewModel" />
@@ -20,52 +22,60 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
-            <androidx.appcompat.widget.Toolbar
+            <RelativeLayout
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@android:color/holo_blue_bright"
                 android:padding="10dp"
-                android:visibility="@{viewModel.isShowAppBar()?View.VISIBLE:View.GONE}" >
+                android:visibility="@{viewModel.isShowAppBar()?View.VISIBLE:View.GONE}">
 
                 <ImageButton
                     android:id="@+id/goBack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
                     android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
                     android:background="@drawable/back"
-                    android:visibility="@{viewModel.isShowBackIcon()?View.VISIBLE:View.GONE}"
-                    />
+                    android:visibility="@{viewModel.isShowBackIcon()?View.VISIBLE:View.GONE}" />
 
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginStart="5dp"
                     android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
                     android:layout_toEndOf="@id/goBack"
                     android:src="@drawable/app_icon"
-                    android:visibility="@{viewModel.isShowAppImage()?View.VISIBLE:View.GONE}"
-                    />
+                    android:visibility="@{viewModel.isShowAppImage()?View.VISIBLE:View.GONE}" />
 
                 <TextView
                     android:id="@+id/textActivityName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:textColor="@color/white"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
                     android:layout_toEndOf="@id/imageView"
                     android:gravity="center"
                     android:text="@{viewModel.activityName}"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="5dp"
-                    android:visibility="@{viewModel.isShowActivityName()?View.VISIBLE:View.GONE}"
-                    />
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:visibility="@{viewModel.isShowActivityName()?View.VISIBLE:View.GONE}" />
 
-            </androidx.appcompat.widget.Toolbar>
+                <ImageView
+                    android:id="@+id/mainMenu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:onClick="@{()->viewModel.baseObserver.onMenuClicked()}"
+                    android:src="@drawable/menu"
+                    android:visibility="@{viewModel.isShowMainMenu()?View.VISIBLE:View.GONE}" />
+
+            </RelativeLayout>
 
             <LinearLayout
                 android:id="@+id/layoutOtherContent"

@@ -1,4 +1,4 @@
-package com.dawarly.networkConnetcion
+package com.dawarly.connection
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

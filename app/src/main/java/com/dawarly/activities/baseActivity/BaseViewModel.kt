@@ -8,11 +8,12 @@ open class BaseViewModel(var application: MyApplication) : AndroidViewModel(appl
     lateinit var baseObserver: Observer
 
     var toolbar = MutableLiveData<Boolean>()
-    var isShowAppBar = MutableLiveData<Boolean?>()
+    var isShowAppBar = MutableLiveData<Boolean>()
     var activityName = MutableLiveData<String>()
-    var isShowBackIcon= MutableLiveData <Boolean?>()
-    var isShowAppImage= MutableLiveData <Boolean?>()
-    var isShowActivityName= MutableLiveData<Boolean?>()
+    var isShowBackIcon= MutableLiveData <Boolean>()
+    var isShowAppImage= MutableLiveData <Boolean>()
+    var isShowActivityName= MutableLiveData<Boolean>()
+    var isShowMainMenu = MutableLiveData<Boolean>()
 
     init {
         toolbar.value = false
@@ -21,11 +22,13 @@ open class BaseViewModel(var application: MyApplication) : AndroidViewModel(appl
         isShowBackIcon.value = false
         isShowAppImage.value = false
         isShowActivityName.value = false
+        isShowMainMenu.value = false
     }
 
     interface Observer {
         fun setAppBar()
         fun onBack()
+        fun onMenuClicked()
     }
 }
 
