@@ -55,6 +55,7 @@ class MapsActivity : BaseActivity
     }
 
     var locationPermissionRequestCode = 1001
+
     fun initMap() {
         //    Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -85,7 +86,7 @@ class MapsActivity : BaseActivity
                             e.printStackTrace()
                         }
                         if (addressList != null && addressList.isNotEmpty()) {
-                            val address = addressList!![0]
+                            val address = addressList[0]
                             val latLng = LatLng(address.latitude, address.longitude)
                             mMap.addMarker(
                                 MarkerOptions().position(latLng)
@@ -156,6 +157,7 @@ class MapsActivity : BaseActivity
                 id: Long
             ) {
                 binding.viewModel!!.selectedCategoryIndex = position
+                (parent!!.getChildAt(0) as TextView).setTextColor(Color.CYAN)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -226,7 +228,7 @@ class MapsActivity : BaseActivity
                     binding.viewModel!!.myLocation?.longitude!!
                 )
             ).title("My Location").snippet("My current location")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
         )
         for (i in resultModels.indices) {
             mMap.addMarker(
@@ -278,7 +280,7 @@ class MapsActivity : BaseActivity
                     .let { binding.viewModel!!.getDrawPath(it!!) }
             }
         })
-        popupShowMarkerDialog.isCancelable = false
+        popupShowMarkerDialog.isCancelable = true
         popupShowMarkerDialog.show(supportFragmentManager, "PopupAskMessageDialog")
     }
 
@@ -303,7 +305,7 @@ class MapsActivity : BaseActivity
     }
 
     override fun drawPath(route: List<LatLng>) {
-        for (i in 0 until route!!.size - 1) {
+        for (i in 0 until route.size - 1) {
             val src = route[i]
             val dest = route[i + 1]
             try {
@@ -321,5 +323,7 @@ class MapsActivity : BaseActivity
         }
     }
 }
+
+
 
 

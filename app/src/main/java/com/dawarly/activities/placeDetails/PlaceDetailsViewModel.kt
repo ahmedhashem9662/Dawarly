@@ -7,7 +7,6 @@ import com.dawarly.model.ResponseDetails
 import com.dawarly.model.ResultModel
 import com.dawarly.connection.APIClient
 import com.dawarly.connection.APIInterface
-import com.example.dawarly.R
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,7 +25,7 @@ class PlaceDetailsViewModel(application: MyApplication) : BaseViewModel(applicat
     var rating = MutableLiveData<String>()
     var internationalPhone = MutableLiveData<String>()
     var url = MutableLiveData<String>()
-    var selectedPlace: ResultModel? = null
+   lateinit var selectedPlace : ResultModel
 
     init {
         placePhoto.value = ""
@@ -55,7 +54,7 @@ class PlaceDetailsViewModel(application: MyApplication) : BaseViewModel(applicat
         url.value = selectedPlace!!.url
     }
 
-    fun getPlaceDetailsFromServer(SelectedPlace: ResultModel) {
+    fun getPlaceDetailsFromServer() {
         observer.showProgressDialog(true)
         val apiInterface: APIInterface = APIClient().getClient().create(APIInterface::class.java)
         val params = HashMap<String, String>()
@@ -72,7 +71,7 @@ class PlaceDetailsViewModel(application: MyApplication) : BaseViewModel(applicat
                 observer.showProgressDialog(false)
                 val responseDetails = response.body()
                 setData()
-                selectedPlace = responseDetails!!.result!!
+              //  selectedPlace = responseDetails!!.result
             }
 
             override fun onFailure(call: Call<ResponseDetails?>, t: Throwable) {

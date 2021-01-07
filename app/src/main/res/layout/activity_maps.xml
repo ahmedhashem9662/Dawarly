@@ -22,12 +22,15 @@
             android:layout_margin="10dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/bg_round"
-            android:hint="@string/write_what_you_want_to_search"
+            android:hint="@string/write_the_name_of_the_country_or_city_you_want"
             android:imeOptions="actionSearch"
             android:inputType="text"
-            android:padding="10dp"
+            android:padding="15dp"
+            android:textSize="15sp"
+            android:textColorHint="@color/light_turquoise"
             android:text="@={viewModel.keyWord}"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            />
 
         <TextView
             android:id="@+id/textView"
@@ -50,27 +53,46 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="10dp"
             android:scrollbars="vertical"
-            android:spinnerMode="dropdown" />
+            android:spinnerMode="dropdown"
+            />
 
-        <EditText
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/planetsSpinner"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            android:background="@android:color/black" />
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edtRadius"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/planetsSpinner"
+            android:layout_below="@id/view"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:hint="@string/radius"
-            android:inputType="number"
-            android:padding="10dp"
-            android:text="@={viewModel.radius}"
-            android:textSize="18sp" />
+            android:layout_marginEnd="10dp"
+            app:hintTextColor="@color/turquoise">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtRadius"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:text="@={viewModel.radius}"
+                app:backgroundTint="@color/turquoise" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/txtKm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/planetsSpinner"
-            android:layout_marginTop="15dp"
+            android:layout_below="@id/view"
+            android:layout_marginTop="30dp"
             android:layout_toEndOf="@id/edtRadius"
             android:text="@string/km"
             android:textColor="@android:color/holo_blue_bright"
@@ -80,9 +102,9 @@
             android:id="@+id/txtSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/planetsSpinner"
+            android:layout_below="@id/view"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="15dp"
             android:drawablePadding="3dp"
             android:onClick="@{()->viewModel.onSearchClick()}"
@@ -99,7 +121,8 @@
             android:layout_marginTop="10dp"
             android:background="@android:color/white"
             android:onClick="@{()->viewModel.observer.onMapClick()}"
-            android:text="@string/map" />
+            android:text="@string/map"
+            />
 
         <Button
             android:id="@+id/buSatellite"

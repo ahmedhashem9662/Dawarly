@@ -1,11 +1,12 @@
 package com.dawarly.model
 
 import java.io.Serializable
+import java.util.ArrayList
 
 class ResponseDetails : Serializable{
 
-    var result: ResultModel? = null
-    var next_page_token: String? = null
-    var reference: String? = null
-    var status: String? = null
+    lateinit var result: ResultModel
+    var next_page_token: String? =""
+    var reference: String? = ""
+    var status: String? = ""
 }

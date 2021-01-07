@@ -5,8 +5,9 @@ import com.dawarly.activities.baseActivity.BaseActivity
 import com.example.dawarly.R
 import com.example.dawarly.databinding.ActivityAboutMapBinding
 
-abstract class AboutActivity : BaseActivity(
-    true, true,true, true, "About Dawarly" , false
+class AboutActivity : BaseActivity(
+    true, true,true, true,
+    "About Dawarly" , false
 ), AboutViewModel.Observer {
 
     lateinit var binding: ActivityAboutMapBinding
@@ -18,6 +19,7 @@ abstract class AboutActivity : BaseActivity(
         ).get(AboutViewModel::class.java)
         binding.viewModel!!.observer = this
         binding.lifecycleOwner = this
+
     }
 }
 

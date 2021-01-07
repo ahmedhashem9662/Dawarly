@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="planets_Spinner">
+
         <item>Accounting</item>
         <item>Airport</item>
         <item>Amusement Park</item>

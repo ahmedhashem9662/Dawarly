@@ -23,7 +23,7 @@ class PlaceDetailsActivity : BaseActivity(
         binding.lifecycleOwner = this
 
         binding.viewModel!!.selectedPlace = intent.extras!!["SelectedPlace"] as ResultModel
-        binding.viewModel!!.getPlaceDetailsFromServer(ResultModel())
+        binding.viewModel!!.getPlaceDetailsFromServer()
     }
 
     override fun showProgressDialog(isShow: Boolean) {
