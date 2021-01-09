@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" >
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+
         <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.dawarly.activities.about.AboutViewModel" />
@@ -71,7 +73,7 @@
         <View
             android:id="@+id/view2"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
+            android:layout_height="1dp"
             android:layout_below="@id/txtView2"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
@@ -98,7 +100,7 @@
             android:layout_marginTop="5dp"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:text="@string/when_you_press_on_any_red_mark_some_information_will_be_shown_press_on_it_to_show_an_alert_dialog_nthe_alert_dialog_lets_you_choose_from_two_buttons_n1_draw_path_between_you_and_this_place_n2_show_all_information_about_this_place"
+            android:text="@string/when_you_press_on_any_mark_for_any_site_some_information_will_be_shown_press_on_it_to_show_an_popup_dialog_nthe_popup_dialog_lets_you_choose_from_two_buttons_n1_draw_path_between_you_and_this_place_n2_show_all_information_about_this_place"
             android:textColor="@android:color/black" />
 
         <View

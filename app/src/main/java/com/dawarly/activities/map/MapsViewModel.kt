@@ -46,10 +46,7 @@ open class MapsViewModel(application: MyApplication) : BaseViewModel(application
 
         placeTypes = application.resources.getStringArray(R.array.planets_Spinner)
         placeTypesKey = application.resources.getStringArray(R.array.planets_Spinner_key)
-        adapter = ArrayAdapter<String>(
-            application.applicationContext,
-            android.R.layout.simple_spinner_item, placeTypes
-        )
+        adapter = ArrayAdapter<String>(application.applicationContext, android.R.layout.simple_spinner_item, placeTypes)
     }
 
     fun getDrawPath(SelectedPlace: ResultModel) {
@@ -125,12 +122,10 @@ open class MapsViewModel(application: MyApplication) : BaseViewModel(application
                 observer.showProgressDialog(false)
             }
         })
-
     }
 
-
     interface Observer {
-        fun initSpinnerCtegories()
+        fun initSpinnerCategories()
         fun onMapClick()
         fun onSatelliteClick()
         fun onHybridClick()
@@ -140,4 +135,5 @@ open class MapsViewModel(application: MyApplication) : BaseViewModel(application
         fun showProgressDialog(isShow: Boolean)
     }
 }
+
 

@@ -49,7 +49,7 @@ class MapsActivity : BaseActivity
         binding.viewModel!!.observer = this
         binding.lifecycleOwner = this
 
-        initSpinnerCtegories()
+        initSpinnerCategories()
         initMap()
 
     }
@@ -96,7 +96,6 @@ class MapsActivity : BaseActivity
                         }
                     }
                 }
-
                 return false
             }
 
@@ -145,9 +144,10 @@ class MapsActivity : BaseActivity
         mMap.uiSettings.isCompassEnabled
     }
 
-    override fun initSpinnerCtegories() {
+    override fun initSpinnerCategories() {
         binding.viewModel!!.adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        //if you want to set any action you can do in this listener
+
+        // if you want to set any action you can do in this listener
         binding.planetsSpinner.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
@@ -167,31 +167,22 @@ class MapsActivity : BaseActivity
     }
 
     var isFirstTime = false
+
     fun centerMapOnLocation(location: Location) {
         if (location != null) {
             if (::myMarker.isInitialized)
                 myMarker.remove()
             myMarker = mMap.addMarker(
                 MarkerOptions().position(LatLng(location.latitude, location.longitude))
-                    .title("My Location")
-                    .snippet("My current location")
-            )
+                    .title("My Location").snippet("My current location"))
             if (isFirstTime) {
                 isFirstTime = false
                 mMap.moveCamera(
                     CameraUpdateFactory.newLatLngZoom(
-                        LatLng(location.latitude, location.longitude),
-                        12f
-                    )
-                )
+                        LatLng(location.latitude, location.longitude), 12f))
                 mMap.moveCamera(
                     CameraUpdateFactory.newLatLng(
-                        LatLng(
-                            location.latitude,
-                            location.longitude
-                        )
-                    )
-                )
+                        LatLng(location.latitude, location.longitude)))
             }
         }
     }
@@ -207,10 +198,7 @@ class MapsActivity : BaseActivity
             && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED
         ) {
             if (ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.ACCESS_FINE_LOCATION
-                ) == PackageManager.PERMISSION_GRANTED
-            ) {
+                    this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 updateLocation()
             }
         }
