@@ -98,7 +98,6 @@ class MapsActivity : BaseActivity
                 }
                 return false
             }
-
         })
     }
 
