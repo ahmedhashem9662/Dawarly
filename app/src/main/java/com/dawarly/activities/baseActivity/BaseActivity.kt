@@ -4,8 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +15,6 @@ import com.dawarly.activities.about.AboutActivity
 import com.dawarly.util.LocaleHelper
 import com.dawarly.util.Preferences
 import com.example.dawarly.databinding.ActivityBaseBinding
-
 
 abstract class BaseActivity : AppCompatActivity, BaseViewModel.Observer {
 
@@ -48,7 +45,7 @@ abstract class BaseActivity : AppCompatActivity, BaseViewModel.Observer {
     lateinit var application: MyApplication
 
     fun updateLocale() {
-        if (Preferences.getApplicationLocale().compareTo("en") == 0) {
+        if (Preferences.getApplicationLocale().compareTo("ar") == 0) {
             forceRTL()
         } else {
             forceLTR()
@@ -68,14 +65,12 @@ abstract class BaseActivity : AppCompatActivity, BaseViewModel.Observer {
         ).get(BaseViewModel::class.java)
         baseBinding.viewModel!!.baseObserver = this
         baseBinding.lifecycleOwner = this
-
-
+        
         setAppBar()
         onBack()
         doCreate()
     }
-
-
+    
     override fun applyOverrideConfiguration(overrideConfiguration: Configuration?) {
         super.applyOverrideConfiguration(
             LocaleHelper.applyOverrideConfiguration(
@@ -135,7 +130,6 @@ abstract class BaseActivity : AppCompatActivity, BaseViewModel.Observer {
         pm.show()
 
     }
-
 }
 
 

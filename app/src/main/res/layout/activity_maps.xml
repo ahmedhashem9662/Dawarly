@@ -137,7 +137,7 @@
             android:text="@string/satellite" />
 
         <Button
-            android:id="@+id/buHybrid"
+            android:id="@+id/buTerrain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/edtRadius"
@@ -145,8 +145,8 @@
             android:layout_marginTop="10dp"
             android:layout_toEndOf="@id/buSatellite"
             android:background="@android:color/white"
-            android:onClick="@{()->viewModel.observer.onHybridClick()}"
-            android:text="@string/hybrid" />
+            android:onClick="@{()->viewModel.observer.onTerrainClick()}"
+            android:text="@string/terrain" />
 
         <fragment
             android:id="@+id/Map"

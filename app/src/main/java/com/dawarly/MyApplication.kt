@@ -13,11 +13,9 @@ class MyApplication : Application() {
         Preferences.initPreference(this)
     }
 
-
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(LocaleHelper.updateLocale(base))
         MultiDex.install(base)
     }
-
-
 }
+

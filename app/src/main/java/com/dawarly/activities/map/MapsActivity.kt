@@ -173,7 +173,7 @@ class MapsActivity : BaseActivity
                 myMarker.remove()
             myMarker = mMap.addMarker(
                 MarkerOptions().position(LatLng(location.latitude, location.longitude))
-                    .title("My Location").snippet("My current location"))
+                    .title(getString(R.string.my_location)).snippet(getString(R.string.my_current_location)))
             if (isFirstTime) {
                 isFirstTime = false
                 mMap.moveCamera(
@@ -214,7 +214,7 @@ class MapsActivity : BaseActivity
                     binding.viewModel!!.myLocation?.latitude!!,
                     binding.viewModel!!.myLocation?.longitude!!
                 )
-            ).title("My Location").snippet("My current location")
+            ).title(getString(R.string.my_location)).snippet(getString(R.string.my_current_location))
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
         )
         for (i in resultModels.indices) {
@@ -232,11 +232,11 @@ class MapsActivity : BaseActivity
     }
 
     override fun showMarkerOptions(marker: Marker) {
-        if (title == "My Location") return
+        if (title == getString(R.string.my_location)) return
         var popupShowMarkerDialog = PopupShowMarkerDialog()
         var bundle = Bundle()
-        bundle.putSerializable("title", "What to do")
-        bundle.putSerializable("message", "for this place?")
+        bundle.putSerializable("title", getString(R.string.what_do_you_want))
+        bundle.putSerializable("message", getString(R.string.for_this_place))
         bundle.putSerializable("positiveButtonText", getString(R.string.placedetails))
         bundle.putSerializable("negativeButtonText", getString(R.string.drawpath))
         bundle.putSerializable("isShowPositiveButton", true)
@@ -256,7 +256,7 @@ class MapsActivity : BaseActivity
                     } else
                         Toast.makeText(
                             this@MapsActivity,
-                            "Not Found Any Information",
+                            getString(R.string.not_found_any_information),
                             Toast.LENGTH_LONG
                         ).show()
                 }
@@ -284,11 +284,11 @@ class MapsActivity : BaseActivity
     }
 
     override fun onSatelliteClick() {
-        mMap.mapType = GoogleMap.MAP_TYPE_SATELLITE
+        mMap.mapType = GoogleMap.MAP_TYPE_HYBRID
     }
 
-    override fun onHybridClick() {
-        mMap.mapType = GoogleMap.MAP_TYPE_HYBRID
+    override fun onTerrainClick() {
+        mMap.mapType = GoogleMap.MAP_TYPE_TERRAIN
     }
 
     override fun drawPath(route: List<LatLng>) {
@@ -310,7 +310,5 @@ class MapsActivity : BaseActivity
         }
     }
 }
-
-
 
 

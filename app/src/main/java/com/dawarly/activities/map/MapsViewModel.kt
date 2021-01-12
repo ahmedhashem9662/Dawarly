@@ -128,7 +128,7 @@ open class MapsViewModel(application: MyApplication) : BaseViewModel(application
         fun initSpinnerCategories()
         fun onMapClick()
         fun onSatelliteClick()
-        fun onHybridClick()
+        fun onTerrainClick()
         fun drawPath(route: List<LatLng>)
         fun putMarkersOnMap(resultModels: ArrayList<ResultModel>)
         fun showMarkerOptions(marker: Marker)

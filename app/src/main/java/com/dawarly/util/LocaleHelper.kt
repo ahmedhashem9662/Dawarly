@@ -10,10 +10,10 @@ object LocaleHelper {
         Preferences.initPreference(base)
         var local = ""
         //initialize preference
-        if (Preferences.getApplicationLocale().compareTo("en") == 0) {
-            local = "en"
-        } else {
+        if (Preferences.getApplicationLocale().compareTo("ar") == 0) {
             local = "ar"
+        } else {
+            local = "en"
         }
         Preferences.saveApplicationLocale(local)
         local.let {
@@ -57,5 +57,5 @@ object LocaleHelper {
         base.resources.updateConfiguration(configuration, base.resources.displayMetrics)
         return base
     }
-
 }
+
