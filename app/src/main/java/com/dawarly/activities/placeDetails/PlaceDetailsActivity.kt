@@ -9,7 +9,8 @@ import com.example.dawarly.databinding.ActivityPlaceDetailsBinding
 import java.util.*
 
 class PlaceDetailsActivity : BaseActivity(
-    true, true, true, true, "Place Details", false
+    true, true, true, true, 
+    "Place Details", false , false
 ), PlaceDetailsViewModel.Observer {
 
     lateinit var binding: ActivityPlaceDetailsBinding

@@ -12,8 +12,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
 import com.dawarly.MyApplication
 import com.dawarly.activities.about.AboutActivity
-import com.dawarly.util.LocaleHelper
-import com.dawarly.util.Preferences
+import com.dawarly.util.*
 import com.example.dawarly.databinding.ActivityBaseBinding
 
 abstract class BaseActivity : AppCompatActivity, BaseViewModel.Observer {
@@ -65,12 +64,12 @@ abstract class BaseActivity : AppCompatActivity, BaseViewModel.Observer {
         ).get(BaseViewModel::class.java)
         baseBinding.viewModel!!.baseObserver = this
         baseBinding.lifecycleOwner = this
-        
+
         setAppBar()
         onBack()
         doCreate()
     }
-    
+
     override fun applyOverrideConfiguration(overrideConfiguration: Configuration?) {
         super.applyOverrideConfiguration(
             LocaleHelper.applyOverrideConfiguration(
@@ -131,7 +130,5 @@ abstract class BaseActivity : AppCompatActivity, BaseViewModel.Observer {
 
     }
 }
-
-
 
 

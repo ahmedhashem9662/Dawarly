@@ -14,6 +14,7 @@ open class BaseViewModel(var application: MyApplication) : AndroidViewModel(appl
     var isShowAppImage= MutableLiveData <Boolean>()
     var isShowActivityName= MutableLiveData<Boolean>()
     var isShowMainMenu = MutableLiveData<Boolean>()
+    var isShowLang = MutableLiveData<Boolean>()
 
     init {
         toolbar.value = false
@@ -23,12 +24,16 @@ open class BaseViewModel(var application: MyApplication) : AndroidViewModel(appl
         isShowAppImage.value = false
         isShowActivityName.value = false
         isShowMainMenu.value = false
+        isShowLang.value = false
     }
 
     interface Observer {
         fun setAppBar()
         fun onBack()
         fun onMenuClicked()
+        fun onBuLanguageClicked()
     }
 }
+
+
 

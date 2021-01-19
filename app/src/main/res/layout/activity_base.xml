@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <data>
-
         <import type="android.view.View" />
-
         <variable
             name="viewModel"
             type="com.dawarly.activities.baseActivity.BaseViewModel" />
@@ -30,7 +27,7 @@
                 android:layout_height="60dp"
                 android:background="@android:color/holo_blue_bright"
                 android:padding="10dp"
-                android:visibility="@{viewModel.isShowAppBar()?View.VISIBLE:View.GONE}">
+                android:visibility="@{viewModel.isShowAppBar()?View.VISIBLE:View.GONE}" >
 
                 <ImageButton
                     android:id="@+id/goBack"
@@ -63,6 +60,18 @@
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:visibility="@{viewModel.isShowActivityName()?View.VISIBLE:View.GONE}" />
+
+                <ImageView
+                    android:id="@+id/buLang"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_toStartOf="@id/mainMenu"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/lang"
+                    android:layout_marginEnd="10dp"
+                    android:onClick="@{()->viewModel.baseObserver.onBuLanguageClicked()}"
+                    android:visibility="@{viewModel.isShowLang()?View.VISIBLE:View.GONE}"
+                    />
 
                 <ImageView
                     android:id="@+id/mainMenu"

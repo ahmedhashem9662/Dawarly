@@ -58,4 +58,3 @@ object LocaleHelper {
         return base
     }
 }
-

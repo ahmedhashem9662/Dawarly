@@ -32,10 +32,9 @@ import com.google.android.gms.maps.model.*
 import java.io.IOException
 import java.util.*
 
-class MapsActivity : BaseActivity
-    (
-    true, false, true, true, "Dawarly", true
-), MapsViewModel.Observer {
+class MapsActivity : BaseActivity (
+    true, false, true, true,
+    "Dawarly", true, true), MapsViewModel.Observer {
 
     lateinit var binding: ActivityMapsBinding
     private lateinit var mMap: GoogleMap
@@ -51,12 +50,11 @@ class MapsActivity : BaseActivity
 
         initSpinnerCategories()
         initMap()
-
     }
 
     var locationPermissionRequestCode = 1001
 
-    fun initMap() {
+    private fun initMap() {
         //    Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.Map) as SupportMapFragment
@@ -67,9 +65,7 @@ class MapsActivity : BaseActivity
                 mMap = googleMap
                 setMapSettings()
                 updateLocation()
-                mMap.setOnInfoWindowClickListener { marker ->
-                    showMarkerOptions(marker)
-                }
+                mMap.setOnInfoWindowClickListener { marker -> showMarkerOptions(marker) }
             }
         })
 
@@ -173,12 +169,16 @@ class MapsActivity : BaseActivity
                 myMarker.remove()
             myMarker = mMap.addMarker(
                 MarkerOptions().position(LatLng(location.latitude, location.longitude))
-                    .title(getString(R.string.my_location)).snippet(getString(R.string.my_current_location)))
+                    .title(getString(R.string.my_location))
+                    .snippet(getString(R.string.my_current_location))
+            )
             if (isFirstTime) {
                 isFirstTime = false
                 mMap.moveCamera(
                     CameraUpdateFactory.newLatLngZoom(
-                        LatLng(location.latitude, location.longitude), 12f))
+                        LatLng(location.latitude, location.longitude), 12f
+                    )
+                )
                 mMap.moveCamera(
                     CameraUpdateFactory.newLatLng(
                         LatLng(location.latitude, location.longitude)))
@@ -186,18 +186,16 @@ class MapsActivity : BaseActivity
         }
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String?>,
-        grantResults: IntArray
-    ) {
+    override fun onRequestPermissionsResult (requestCode: Int, permissions: Array<String?>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
         if (requestCode == locationPermissionRequestCode
             && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED
         ) {
             if (ContextCompat.checkSelfPermission(
-                    this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                    this, Manifest.permission.ACCESS_FINE_LOCATION
+                ) == PackageManager.PERMISSION_GRANTED
+            ) {
                 updateLocation()
             }
         }
@@ -214,7 +212,8 @@ class MapsActivity : BaseActivity
                     binding.viewModel!!.myLocation?.latitude!!,
                     binding.viewModel!!.myLocation?.longitude!!
                 )
-            ).title(getString(R.string.my_location)).snippet(getString(R.string.my_current_location))
+            ).title(getString(R.string.my_location))
+                .snippet(getString(R.string.my_current_location))
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
         )
         for (i in resultModels.indices) {
@@ -226,8 +225,7 @@ class MapsActivity : BaseActivity
                     )
                 )
                     .title(resultModels[i].name).snippet(resultModels[i].vicinity)
-                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN))
-            )
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)))
         }
     }
 
@@ -310,5 +308,7 @@ class MapsActivity : BaseActivity
         }
     }
 }
+
+
 
 

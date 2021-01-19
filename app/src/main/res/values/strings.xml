@@ -22,7 +22,7 @@
     <string name="dawarly_helps_you_to_get_the_places_nearby_your_location_as_you_choose_from_categories_njust_open_the_map_screen_press_on_categories_menu_to_choose_the_place_category_nthen_choose_the_place_category_that_you_need_doctors_airports_hospitals_etc_nthen_enter_the_radius_of_search_region_in_kms_n_then_press_on_search_button_and_please_wait_for_nseveral_seconds_until_finish_the_search">Dawarly helps you to get the places nearby your location as you choose from categories.\nJust open the map screen, press on Categories menu to choose the place category.\nThen choose the place category that You need (Doctors , Airports , Hospitals ... etc),\nThen enter the radius of search region in KMs.\n Then press on Search button and please wait for \nSeveral seconds until finish the search.</string>
     <string name="when_you_press_on_any_mark_for_any_site_some_information_will_be_shown_press_on_it_to_show_an_popup_dialog_nthe_popup_dialog_lets_you_choose_from_two_buttons_n1_draw_path_between_you_and_this_place_n2_show_all_information_about_this_place">When you press on any mark for any site, some information will be shown, press on it to show an popup dialog.\nThe popup dialog lets you choose from two buttons.\n1- Draw path between you and this place.\n2- Show all information about this place.</string>
     <string name="copyrighted">Copyrighted.</string>
-    <string name="created_by_ahmed_hashem_and_khaled_saleh_junior_android_developers">Created by : Ahmed Hashem and khaled Saleh Junior android developers.</string>
+    <string name="created_by_ahmed_hashem_junior_android_developer">Created by : Ahmed Hashem Junior android developer.</string>
     <string name="place_details">Place Details</string>
     <string name="Place_Details" />
     <string name="dawarly">Dawarly</string>
@@ -39,12 +39,13 @@
     <string name="please_wait">Please Wait...</string>
     <string name="e_mail">E-mail:</string>
     <string name="ahmed_mohamed_hashim96_gmail_com">Ahmed.Mohamed.Hashim96@Gmail.Com</string>
-    <string name="khaled_bedawy92_gmail_com">Khaled.Bedawy92@Gmail.Com</string>
     <string name="write_the_name_of_the_country_or_city_you_want">Write the name of the country or city you want</string>
     <string name="what_do_you_want">What do you want</string>
     <string name="for_this_place">for this place?</string>
     <string name="my_current_location">My current location</string>
     <string name="my_location">My Location</string>
     <string name="not_found_any_information">Not Found Any Information</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
 
 </resources>
